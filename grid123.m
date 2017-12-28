@@ -7,6 +7,7 @@ map=[  0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
        1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0
        0 1 1 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
        0 1 1 1 0 0 1 1 1 0 0 0 0 0 0 1 0 0 0 0
+       0 1 1 1 0 0 0 1 1 1 0 0 0 1 0 1 0 0 0 0
        0 1 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 0 0 0
        0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0
        0 0 0 0 0 0 0 1 1 0 0 0 1 1 0 0 0 0 0 0
@@ -46,7 +47,7 @@ goal = [20 20];
 f = [];%heuristic values of every cell. estimated as the straight distance between the goal and cell
 h = [];
 g = [];
-for i=1:msize(1)
+for i = 1:msize(1)
     for j=1:msize(2)
         h(i,j) = sqrt((i-goal(1))^2+(j-goal(2))^2); % abs(i - goal(1)) + abs(j - goal(2));%
         g(i,j) = sqrt((i-initial(1))^2+(j-initial(2))^2); % abs(i - initial(1)) + abs(j - initial(2)); %mahaten distance
@@ -57,7 +58,7 @@ for i=1:msize(1)
     end
 end
 
-open=[initial(1),initial(2),f(initial(1),initial(2)),-1,-1];
+open = [initial(1),initial(2),f(initial(1),initial(2)),-1,-1];
 %open nodes,[X(x coordinate of the cell/column),Y( y coordinate of the
 %cell/row),f(sum of weight of all previous nodes and included this+heuristic), x
 %(previous cell),y (previous cell)]
